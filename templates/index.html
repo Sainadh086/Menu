@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <title>Menu</title>
+    <div style="background-color: black;text-align: center;">
+    
+        <div style="text-align: center;padding-bottom: 40px;padding-top: 40px;"> 
+            <h1 style="color: blanchedalmond;">MENU</h1>
+        </div>
+    </div>
+
+
+<body>
+    <center><h3> You can create and interact with the below technologies </h3></center>
+    <br>
+    <div>
+        {% for i,j in data.items() %}
+        <center><h4>{{i}}</h4></center><br>
+        {% endfor %}
+    </div>
+    
+   
+
+
+<div style="white-space: pre-wrap;text-align: center;">
+    <h3 style="background: scroll;">By filling the form you can use the services</h3>
+
+    <form action = "/out", method="POST">
+        {% for i in data.keys() %}
+        Technology: <select name="tech">
+                        <option value= "{{i}}">{{i}}</option>
+                    </select>  
+        <br>
+        Service: <select name="service"  >: {% for k in data[i] %}
+                                <option value = "{{k}}"> {{k}} </option>
+                                {% endfor %}
+                            </select>
+        <br><br>
+
+        {% endfor %}
+    </form>
+</div>
+</body>
+</html>
