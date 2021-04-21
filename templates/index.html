@@ -21,22 +21,35 @@
    
 
 
-<div style="white-space: pre-wrap;text-align: center;">
+<div style="white-space: pre-wrap;text-align: center;border-style: dashed;background-color:lightblue;">
     <h3 style="background: scroll;">By filling the form you can use the services</h3>
 
     <form action = "/out", method="POST">
-        {% for i in data.keys() %}
-        Technology: <select name="tech">
-                        <option value= "{{i}}">{{i}}</option>
+        
+        Technology: <select name="tech"> {% for i in data.keys() %}
+                        <option value = "{{i}}"> {{i}} </option>
+                        {% endfor %}
                     </select>  
-        <br>
-        Service: <select name="service"  >: {% for k in data[i] %}
+                    
+        
+
+        Service: <select name="service"> {% for k in data['hadoop'] %}
                                 <option value = "{{k}}"> {{k}} </option>
                                 {% endfor %}
                             </select>
-        <br><br>
+        <br>
+        Remote VM:<input type = 'radio' , name = "remote", value = 'True'> Yes </input>
+                   <input type = "radio", name = "remote", value = 'False'> No </input>
+        
+        
+        <br>
+        VM User Name: <input type="text" name = "user"> </input>
+        <br>
+        VM IP address: <input type="text" name = "ip"> </input>
+        <br>
+        Password or Key File(Path): <input type="text" name = "passw"> </input>
 
-        {% endfor %}
+        <input type="submit" value="submit"></input>
     </form>
 </div>
 </body>

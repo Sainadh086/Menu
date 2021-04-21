@@ -13,7 +13,7 @@ def index():
     if request.method == "GET":
         return jsonify(data)
     else:
-        retunr data
+        return data
 
 
 
